@@ -1,0 +1,24 @@
+{
+  "name": "burgerlogger",
+  "version": "1.0.0",
+  "description": "Homework for week 13 - Burger Logger",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joneill-bootcamp/burgerlogger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joneill-bootcamp/burgerlogger/issues"
+  },
+  "homepage": "https://github.com/joneill-bootcamp/burgerlogger#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.3",
+    "mysql": "^2.18.1"
+  }
+}

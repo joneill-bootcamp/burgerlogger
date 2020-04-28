@@ -1,0 +1,1 @@
+require("./db/config/orm.js");
