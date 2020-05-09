@@ -12,10 +12,13 @@ var db = require("../models");
 // =============================================================
 module.exports = function (app) {
 
-  // GET route for getting all of the Burgers
+  // GET route for getting Burgers
   app.get("/api/burgers", function (req, res) {
     var query = {};
-    db.Post.findAll({
+    if (req.query.devoured) {
+      query.devoured = req.query.devoured;
+    }
+    db.Burger.findAll({
       where: query
     }).then(function (dbGet) {
       res.json(dbGet);
@@ -42,18 +45,20 @@ module.exports = function (app) {
 
   // DELETE route for deleting a Burger
   app.delete("/api/burgers/:id", function (req, res) {
-    db.Post.destroy({
+    db.Burger.destroy({
       where: {
         id: req.params.id
       }
     }).then(function (dbPost) {
       res.json(dbPost);
+    }).catch(function (err) {
+      console.log(err);
     });
   });
 
   // PUT route for updating Burgers
   app.put("/api/burgers", function (req, res) {
-    db.Post.update(
+    db.Burger.update(
       req.body, {
         where: {
           id: req.body.id
