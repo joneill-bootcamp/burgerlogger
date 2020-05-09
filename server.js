@@ -14,14 +14,20 @@ var PORT = process.env.PORT || 8000;
 // Requiring our models for syncing
 var db = require("./models");
 
+// Static files
+app.use(express.static("public"));
+
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({
     extended: true
 }));
 app.use(express.json());
 
-// Static directory
-app.use(express.static("public"));
+// Set up HandleBars
+app.engine("hanlebars", exphbs({
+    defaultLayout: "main"
+}));
+app.set("view engine", "handlerbars");
 
 // Routes
 // =============================================================
