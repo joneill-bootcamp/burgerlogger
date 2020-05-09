@@ -23,12 +23,6 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 
-// Set up HandleBars
-app.engine("hanlebars", exphbs({
-    defaultLayout: "main"
-}));
-app.set("view engine", "handlerbars");
-
 // Routes
 // =============================================================
 require("./routes/html-routes.js")(app);
