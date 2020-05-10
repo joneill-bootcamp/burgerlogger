@@ -5,8 +5,9 @@ $(document).ready(function () {
     const unDevouredList = $("#undevouredList");
     const DevouredList = $("#devouredList");
 
-    //Event Handler
+    //Event Handlers
     $(document).on("click", "button.devour", devourBurger);
+    $(document).on("click", "button.undevour", unDevourBurger);
     $(document).on("click", "button.addburger", addBurger);
 
     function getBurgers() {
@@ -38,23 +39,62 @@ $(document).ready(function () {
             // Now generate buttons representing the burgers
             burgers.forEach(element => {
                 var newListItem = $("<li>")
-                newButton.addClass("btn btn-primary");
+                var newButton = $("<button>");
+                newButton.text(element.burger_name);
+                newButton.addClass("undevour btn btn-primary");
                 newButton.prop('value', element.id);
-                newButton.attr('text', element.burger_name);
 
                 newButton.on("click", function () {
                     console.log('click detected');
                 });
-
+                newListItem.append(newButton);
                 DevouredList.append(newListItem);
             });
         });
     }
 
-    // Add event for 'add burger to undevoured list'
+    // Add event for 'add burger to devoured list'
     function devourBurger() {
         var burgerID = $(this).attr('value');
-        alert(`Devouring burger ${burgerID}`);
+        //alert(`Devouring burger ${burgerID}`);
+
+        var putBurger = {
+            "id": burgerID,
+            "devoured": 1
+        }
+
+        $.ajax({
+            "url": "/api/burgers",
+            "type": "PUT",
+            "data": putBurger,
+            "success": function (data) {
+                console.log(data);
+            }
+        });
+        // re-render page
+        window.location.reload();
+    }
+
+    // Add event to 'undevour burger'
+    function unDevourBurger() {
+        var burgerID = $(this).attr('value');
+        //alert(`Devouring burger ${burgerID}`);
+
+        var putBurger = {
+            "id": burgerID,
+            "devoured": 0
+        }
+
+        $.ajax({
+            "url": "/api/burgers",
+            "type": "PUT",
+            "data": putBurger,
+            "success": function (data) {
+                console.log(data);
+            }
+        });
+        // re-render page
+        window.location.reload();
     }
 
     function addBurger() {
@@ -80,9 +120,6 @@ $(document).ready(function () {
         // re-render page
         window.location.reload();
     }
-
-    // Add event for 'Delete Devoured Burger'
-
 
     // Iniital Run logic
     getBurgers();
