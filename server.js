@@ -15,7 +15,7 @@ var PORT = process.env.PORT || 8000;
 var db = require("./models");
 
 // Static files
-app.use(express.static("public"));
+app.use(express.static(__dirname + '/public'));
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({
