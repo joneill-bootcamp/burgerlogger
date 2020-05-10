@@ -1,7 +1,5 @@
 # Eat a Burger
 
-=========
-
 # Description
 
 Uses Jquery, Sequelize, MySQL to allow user to chose burgers from a drop down list, the burgers are represented by buttons on the 'Yummy to eat' pane, clicking on a burger 'devours' the burger and puts it into the right 'devoured' pane.
@@ -13,6 +11,8 @@ You can also click on the burger in the 'devoured' pane to put it back into the 
 # Repo Link
 
 > https://github.com/joneill-bootcamp
+
+# Heroku Link
 
 This project was build by John O'Neill, who can be reached at null
 
