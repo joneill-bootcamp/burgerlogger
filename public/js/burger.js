@@ -101,7 +101,7 @@ $(document).ready(function () {
 
         var burgerName = "";
 
-        if ($("#newburger option:selected").text() === "Please Select a Sandwich") {
+        if ($("#newburger option:selected").text() === "Please Select a Burger") {
             console.log('No action taken, nothing selected');
         } else {
             burgerName = $("#newburger option:selected").text();
