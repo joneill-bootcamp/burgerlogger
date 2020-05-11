@@ -72,7 +72,8 @@ $(document).ready(function () {
             }
         });
         // re-render page
-        window.location.reload();
+        // window.location.reload();
+        window.location.href = window.location.href;
     }
 
     // Add event to 'undevour burger'
@@ -94,7 +95,8 @@ $(document).ready(function () {
             }
         });
         // re-render page
-        window.location.reload();
+        // window.location.reload();
+        window.location.href = window.location.href;
     }
 
     function addBurger() {
@@ -118,7 +120,8 @@ $(document).ready(function () {
             });
         }
         // re-render page
-        window.location.reload();
+        //window.location.reload();
+        window.location.href = window.location.href;
     }
 
     // Iniital Run logic
