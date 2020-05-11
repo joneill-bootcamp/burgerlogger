@@ -12,43 +12,26 @@ $(document).ready(function () {
 
     function getBurgers() {
 
-        $.get("/api/burgers/?devoured=0", function (data) {
+        $.get("/api/burgers", function (data) {
             burgers = data;
 
-            console.log("UnDevoured Burgers Data", burgers);
+            console.log(" Burgers Data", burgers);
 
-            // Now generate buttons representing the burgers
+            // Now generate buttons representing the burgers, single AJAX call and parse responses accordingly
             burgers.forEach(element => {
                 var newListItem = $("<li>")
                 var newButton = $("<button>");
                 newButton.text(element.burger_name);
-                newButton.addClass("devour btn btn-primary");
-
                 newButton.prop('value', element.id);
-
                 newListItem.append(newButton);
-                unDevouredList.append(newListItem);
-            });
-        });
+                if (!element.devoured) {
+                    newButton.addClass("devour btn btn-primary");
+                    unDevouredList.append(newListItem);
+                } else {
+                    newButton.addClass("undevour btn btn-primary");
+                    DevouredList.append(newListItem);
+                }
 
-        $.get("/api/burgers/?devoured=1", function (data) {
-            burgers = data;
-
-            console.log("Devoured Burgers Data", burgers);
-
-            // Now generate buttons representing the burgers
-            burgers.forEach(element => {
-                var newListItem = $("<li>")
-                var newButton = $("<button>");
-                newButton.text(element.burger_name);
-                newButton.addClass("undevour btn btn-primary");
-                newButton.prop('value', element.id);
-
-                newButton.on("click", function () {
-                    console.log('click detected');
-                });
-                newListItem.append(newButton);
-                DevouredList.append(newListItem);
             });
         });
     }
