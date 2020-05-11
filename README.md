@@ -16,8 +16,6 @@ You can also click on the burger in the 'devoured' pane to put it back into the 
 
 > https://morning-chamber-32081.herokuapp.com/
 
-This project was build by John O'Neill, who can be reached at null
-
 # Table of Contents
 
 1. [Installation](##Installation)
