@@ -70,10 +70,9 @@ $(document).ready(function () {
             "success": function (data) {
                 console.log(data);
             }
+        }).then(function () {
+            location.reload();
         });
-        // re-render page
-        // window.location.reload();
-        window.location.href = window.location.href;
     }
 
     // Add event to 'undevour burger'
@@ -93,10 +92,9 @@ $(document).ready(function () {
             "success": function (data) {
                 console.log(data);
             }
+        }).then(function () {
+            location.reload();
         });
-        // re-render page
-        // window.location.reload();
-        window.location.href = window.location.href;
     }
 
     function addBurger() {
@@ -117,11 +115,10 @@ $(document).ready(function () {
 
             $.post("/api/burgers", newBurger, function (result) {
                 console.log(result);
+            }).then(function () {
+                location.reload();
             });
         }
-        // re-render page
-        //window.location.reload();
-        window.location.href = window.location.href;
     }
 
     // Iniital Run logic
